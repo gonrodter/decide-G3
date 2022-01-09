@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
+
+django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -70,7 +73,6 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'http://localhost:8000'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -180,3 +182,7 @@ if os.path.exists("config.jsonnet"):
 
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+
+BASEURL = 'https://decide-g3.herokuapp.com'
+
+APIS = {}
